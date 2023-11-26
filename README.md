@@ -2,7 +2,7 @@
 
 - On Policy Learning
 - Advantageous for Continuous State/Action spaces
-- 
+
 ![image](https://github.com/MeherDeepak-2005/REINFORCE/assets/68017128/841947c6-6770-4074-92ab-7d2bce33030a)
 
 ## Train
