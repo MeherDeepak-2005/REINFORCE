@@ -2,19 +2,8 @@
 
 - On Policy Learning
 - Advantageous for Continuous State/Action spaces
-
-> Model learns by maximising the expectation of returns G ~ $$\mathbb{E_{\pi}\left[ G_{t} \right]}$$ under the policy $$\pi$$.
-> The policy $$\pi \left(a | s, \theta \right)$$ states the probability distrubtion of taking action $$a_{t}$$ given the state $$s_{t}$$ at timestep $$t$$ under the parameters of the Neural network $$\theta$$
-
-### Policy Gradient Theorem
-$$ \nabla_\theta J(\theta) = \mathbb{E}_{\pi_\theta}\left[ \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t|s_t, \theta) G_t \right] $$
-
-**Parameters Update**
-- $$\theta \leftarrow \theta + \alpha \nabla_\theta J(\theta) $$
-
-- This method is a gradient ascent, since pytorch can only perform gradient descent, the loss is calculated as the negative expectation of returns under the policy.
-
-   $$ L\left(\theta\right) = -\mathbb{E}_{\pi_\theta}\left[ \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t|s_t, \theta) G_t \right] $$
+- 
+![image](https://github.com/MeherDeepak-2005/REINFORCE/assets/68017128/841947c6-6770-4074-92ab-7d2bce33030a)
 
 ## Train
 **Params**
@@ -43,5 +32,4 @@ tensorboard --logdir=./plays/LunarLander-v2/
 python play_testing.py --env "LunarLander-v2" --chkpt './agent/LunarLander-v2/lr=0.0005'
 ```
 
-[Watch the video](./videos/LunarLander-v2.mp4)
-
+https://github.com/MeherDeepak-2005/REINFORCE/assets/68017128/b19678d5-5815-43de-9c71-2fb624cd64c6
