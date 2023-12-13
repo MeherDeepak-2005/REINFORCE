@@ -2,14 +2,14 @@ import gymnasium as gym
 from policy_network import Agent
 from torch import load as torch_load
 from argparse import ArgumentParser
-
+import os
 
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--env", default="LunarLander-v2", type=str)
     parser.add_argument(
         "--chkpt",
-        default="./agent/LunarLander-v2.pt",
+        default="./agent/",
         help="Save/Load checkpoint file address for model",
         type=str,
     )
@@ -17,10 +17,11 @@ if __name__ == "__main__":
         "--render_mode", default="human", help="Render Mode for Env", type=str
     )
     args = parser.parse_args()
+    chkpt = os.path.join(args.chkpt, f"{args.env}.pt")
 
     env = gym.make(args.env, render_mode=args.render_mode)
     agent = Agent(env.observation_space.shape[0], env.action_space.n, lr=None)
-    agent.policy.load_state_dict(torch_load(args.chkpt))
+    agent.policy.load_state_dict(torch_load(chkpt))
     agent.policy.eval()
 
     while True:
